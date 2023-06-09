@@ -5,6 +5,10 @@
   <img src="https://github.com/VijayKumarKTG/hackathon-front-end/assets/75990868/2cfcde1f-c187-4650-9164-14f5432d646c" alt="Stackoverflow 3.0 dApp">
 </p>
 
+## Component Repos
+Smart Contracts: https://github.com/moonman369/MeshNode-Web3 <br />
+Frontend: https://github.com/VijayKumarKTG/hackathon-front-end
+
 ## About
  MeshNode creates a interactive ecosystem where users can post questions on diverse topics or tags, seeking insights and solutions from a community of experts and enthusiasts. Likewise, users are encouraged to contribute their knowledge by answering questions posed by others. This collaborative environment facilitates the exchange of ideas, information, and expertise, and last but not the least incentivize user with rewards like badges and NFTs.
 The platform uses Chainlink VRF to select random winners from existing users and airdrop NFTs to them.
