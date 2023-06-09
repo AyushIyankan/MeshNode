@@ -1,0 +1,40 @@
+{
+  "name": "stackoverflow3.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "1==========================================": "DEPLOY STACK3==========================================",
+    "deploy-sepolia": "npx hardhat --network sepolia run scripts/deployPipeline.js",
+    "deploy-mumbai": "npx hardhat --network mumbai run scripts/deployPipeline.js",
+    "deploy-local": "npx hardhat --network localhost run scripts/deployPipeline.js",
+    "deploy-fuji": "npx hardhat --network fuji run scripts/deployPipeline.js",
+    "2=====================================": "DEPLOY STACK3 AUTOMATION====================================",
+    "deploy-auto-sepolia": "npx hardhat --network sepolia run scripts/deployAutomationPipeline.js",
+    "deploy-auto-mumbai": "npx hardhat --network mumbai run scripts/deployAutomationPipeline.js",
+    "deploy-auto-local": "npx hardhat --network localhost run scripts/deployAutomationPipeline.js",
+    "deploy-auto-fuji": "npx hardhat --network fuji run scripts/deployAutomationPipeline.js",
+    "3=========================================": "DEVMINT RARE NFT========================================",
+    "devmint-mumbai": "npx hardhat --network mumbai run scripts/devMintRareNFT.js",
+    "devmint-sepolia": "npx hardhat --network sepolia run scripts/devMintRareNFT.js",
+    "devmint-fuji": "npx hardhat --network fuji run scripts/devMintRareNFT.js",
+    "devmint-local": "npx hardhat --network local run scripts/devMintRareNFT.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@openzeppelin/contracts": "^4.8.3",
+    "hardhat": "^2.14.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^16.0.3",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.3.10"
+  }
+}
