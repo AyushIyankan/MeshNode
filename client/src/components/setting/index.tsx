@@ -192,6 +192,8 @@ const Setting = ({ refetchUser }: { refetchUser: () => void }) => {
     },
   });
 
+  const user = data as any;
+
   useEffect(() => {
     if (!isConnected) {
       router.push('/connect-wallet');
@@ -199,10 +201,10 @@ const Setting = ({ refetchUser }: { refetchUser: () => void }) => {
   }, [isConnected, router]);
 
   useEffect(() => {
-    if (data) {
+    if (user) {
       const fetchUserJSON = async () => {
         await axios
-          .get(data?.uri)
+          .get(user?.uri)
           .then(async (response) => {
             if (!response?.data) {
               throw new Error('User not registered');
