@@ -1,0 +1,30 @@
+.rc-md-editor {
+  background-color: #13182e;
+  border: none;
+}
+
+.rc-md-editor .rc-md-navigation {
+  border-radius: 14px 14px 0px 0px;
+  background-color: inherit;
+}
+
+.rc-md-editor .editor-container {
+  border-radius: inherit;
+  border: none;
+}
+
+.rc-md-editor .editor-container .sec-md,
+.rc-md-editor .editor-container .sec-md .input {
+  border-radius: 0px 0px 0px 14px;
+  background-color: #13182e;
+  color: #ffffff;
+}
+
+.rc-md-editor .editor-container > .section:last-child {
+  border: none;
+}
+
+.custom-html-style code,
+.custom-html-style pre {
+  background: #24293f;
+}
