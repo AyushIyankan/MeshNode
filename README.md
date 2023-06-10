@@ -2,7 +2,7 @@
 <p align="center" style="font-size: 24px; font-weight: 500; font-family: DM Sans, sans-serif;">Fully Decentralized Community Project with Rewards</p>
 
 <p align="center">
-  <img src="https://github.com/VijayKumarKTG/hackathon-front-end/assets/75990868/2cfcde1f-c187-4650-9164-14f5432d646c" alt="Stackoverflow 3.0 dApp">
+  <img src="https://github.com/AyushIyankan/MeshNode/assets/75990868/981cd9bc-2272-43d7-8fdf-c42c6716836e" alt="MeshNode Banner">
 </p>
 
 ## Component Repos
