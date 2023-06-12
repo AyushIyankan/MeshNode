@@ -191,12 +191,15 @@ const QuestionContentCard = (props: Props) => {
     };
 
     const name = newComment.slice(0, 10);
-    const uniqueSeed = await crypto.subtle.digest(
+    const uniqueSeedBuffer = await crypto.subtle.digest(
       "SHA-256",
-      new TextEncoder().encode(name)
+      new TextEncoder().encode(newComment)
+    );
+    const uniqueSeed = new TextDecoder("utf-8").decode(
+      new Uint8Array(uniqueSeedBuffer)
     );
 
-    const url = await uploadJSONToPinata(data, { name: `${name}${uniqueSeed}` });
+    const url = await uploadJSONToPinata(data, { name: `${name}-${uniqueSeed}` });
     changeCommentUrl(url);
     isCommenting.current = true;
   };
