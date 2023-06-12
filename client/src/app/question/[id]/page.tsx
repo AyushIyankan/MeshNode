@@ -219,13 +219,19 @@ const Question = ({ params }: { params: { id: string } }) => {
     };
 
     const name = answer.slice(0, 10);
-    const uniqueSeed = await crypto.subtle.digest(
+    const uniqueSeedBuffer = await crypto.subtle.digest(
       "SHA-256",
-      new TextEncoder().encode(name)
+      new TextEncoder().encode(answer)
     );
+    const uniqueSeed = new TextDecoder("utf-8").decode(
+      new Uint8Array(uniqueSeedBuffer)
+    );
+
+    console.log(uniqueSeed);
     const temp_url = await uploadJSONToPinata(data, {
       name: `${name}-${uniqueSeed}`,
     });
+
     changeUrl(temp_url);
     isAnswering.current = true;
   };

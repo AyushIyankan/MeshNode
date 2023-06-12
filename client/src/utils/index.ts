@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const getPreviewImage = (file: File): string | undefined => {
   if (file) {
@@ -19,7 +19,7 @@ const pinFileToIPFS = async (file: File, description: string) => {
   const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
 
   let data = new FormData();
-  data.append('file', file);
+  data.append("file", file);
 
   const metadata = JSON.stringify({
     name: file.name,
@@ -29,12 +29,12 @@ const pinFileToIPFS = async (file: File, description: string) => {
     },
   });
 
-  data.append('pinataMetadata', metadata);
+  data.append("pinataMetadata", metadata);
 
   try {
     const response = await axios.post(url, data, {
       headers: {
-        'Content-Type': `multipart/form-data;`,
+        "Content-Type": `multipart/form-data;`,
         pinata_api_key: PINATA_KEY,
         pinata_secret_api_key: PINATA_SECRET,
       },
@@ -42,23 +42,23 @@ const pinFileToIPFS = async (file: File, description: string) => {
 
     return response;
   } catch (error) {
-    console.log('Error', error);
+    console.log("Error", error);
   }
 };
 
 export const uploadFileToPinata = async (file: File | null) => {
-  if (!file) return '';
+  if (!file) return "";
 
   try {
-    let result: any = await pinFileToIPFS(file, 'Express Demo');
+    let result: any = await pinFileToIPFS(file, "Express Demo");
     if (result.status === 200) {
       return `${IPFS_LINK}${result.data.IpfsHash}`;
     } else {
-      return '';
+      return "";
     }
   } catch (err) {
     console.log(err);
-    return '';
+    return "";
   }
 };
 
@@ -69,12 +69,12 @@ const pinJSONToIPFS = async (JSONBody: any, metadata: any) => {
   });
 
   var config = {
-    method: 'post',
-    url: 'https://api.pinata.cloud/pinning/pinJSONToIPFS',
+    method: "post",
+    url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI0NDExYTc2YS01ZmI1LTQ3YzQtOTIzYS05ZGZkMzI1MTExZmEiLCJlbWFpbCI6InZpamF5a3VtYXJkZXZrdGdAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImI2Njg5NWU3N2M2NmI2YWU1ZmVmIiwic2NvcGVkS2V5U2VjcmV0IjoiMTQzOTQyMmE4NDg5OWQ3NzIxZDI5MjgwMTgyZjQ2ZjViN2M0NjJhNzdhZDg2YWZiOWRjZGEyYWFhZmQ5NGYzYSIsImlhdCI6MTY4NTk4MDg2OH0.wdC0QN5ZYJEtfdIanc3fFOTJxqTfYZoATTU4U6aBLmM',
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI0NDExYTc2YS01ZmI1LTQ3YzQtOTIzYS05ZGZkMzI1MTExZmEiLCJlbWFpbCI6InZpamF5a3VtYXJkZXZrdGdAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImI2Njg5NWU3N2M2NmI2YWU1ZmVmIiwic2NvcGVkS2V5U2VjcmV0IjoiMTQzOTQyMmE4NDg5OWQ3NzIxZDI5MjgwMTgyZjQ2ZjViN2M0NjJhNzdhZDg2YWZiOWRjZGEyYWFhZmQ5NGYzYSIsImlhdCI6MTY4NTk4MDg2OH0.wdC0QN5ZYJEtfdIanc3fFOTJxqTfYZoATTU4U6aBLmM",
     },
     data: data,
   };
@@ -94,11 +94,11 @@ export const uploadJSONToPinata = async (json: any, metadata: any) => {
     if (result.status === 200) {
       return `${IPFS_LINK}${result.data.IpfsHash}`;
     } else {
-      return '';
+      return "";
     }
   } catch (err) {
     console.log(err);
-    return '';
+    return "";
   }
 };
 
