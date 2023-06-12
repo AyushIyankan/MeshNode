@@ -190,7 +190,13 @@ const QuestionContentCard = (props: Props) => {
       createdAt: new Date(),
     };
 
-    const url = await uploadJSONToPinata(data, { name: newComment });
+    const name = newComment.slice(0, 10);
+    const uniqueSeed = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(name)
+    );
+
+    const url = await uploadJSONToPinata(data, { name: `${name}${uniqueSeed}` });
     changeCommentUrl(url);
     isCommenting.current = true;
   };
